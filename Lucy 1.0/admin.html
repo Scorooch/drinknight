@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="night">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucy Club - Admin Panel</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-container">
+            <div class="login-header">
+                <span class="login-icon">🔐</span>
+                <h1>Lucy Club</h1>
+                <p>Admin Panel</p>
+            </div>
+            
+            <form class="login-form" id="loginForm">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter username" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                
+                <div class="login-error" id="loginError"></div>
+                
+                <button type="submit" class="login-btn">
+                    <span>Login</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-dashboard" id="adminDashboard" style="display: none;">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-logo">🍹</span>
+                <h2>Lucy Admin</h2>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-section="categories">
+                    <span class="nav-icon">📁</span>
+                    <span>Categories</span>
+                </button>
+                <button class="nav-item" data-section="drinks">
+                    <span class="nav-icon">🍸</span>
+                    <span>All Drinks</span>
+                </button>
+                <button class="nav-item" data-section="tags">
+                    <span class="nav-icon">🏷️</span>
+                    <span>Tags</span>
+                </button>
+                <button class="nav-item" data-section="hidden">
+                    <span class="nav-icon">🤫</span>
+                    <span>Hidden Menu</span>
+                </button>
+                <button class="nav-item" data-section="settings">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </button>
+                <button class="nav-item" data-section="export">
+                    <span class="nav-icon">💾</span>
+                    <span>Export</span>
+                </button>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button class="preview-btn" onclick="openPreview()">
+                    <span>👁️</span> Preview Site
+                </button>
+                <button class="logout-btn" onclick="logout()">
+                    <span>🚪</span> Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-panel">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="top-bar-title">
+                    <h1 id="sectionTitle">Categories</h1>
+                    <p id="sectionSubtitle">Manage your menu categories</p>
+                </div>
+                
+                <div class="top-bar-actions">
+                    <button class="action-btn" id="undoBtn" onclick="undo()" disabled>
+                        <span>↶</span> Undo
+                    </button>
+                    <button class="action-btn" id="redoBtn" onclick="redo()" disabled>
+                        <span>↷</span> Redo
+                    </button>
+                    <button class="action-btn primary" id="saveBtn" onclick="saveChanges()">
+                        <span>💾</span> Save Changes
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content Sections -->
+            <div class="content-area">
+                <!-- Categories Section -->
+                <section class="content-section active" id="section-categories">
+                    <div class="section-header">
+                        <button class="add-btn" onclick="addCategory()">
+                            <span>+</span> Add Category
+                        </button>
+                    </div>
+                    
+                    <div class="categories-grid" id="categoriesGrid">
+                        <!-- Categories will be rendered here -->
+                    </div>
+                </section>
+
+                <!-- All Drinks Section -->
+                <section class="content-section" id="section-drinks">
+                    <div class="section-header">
+                        <div class="filter-bar">
+                            <input type="text" id="drinkFilter" placeholder="🔍 Search drinks..." class="filter-input">
+                            <select id="categoryFilter" class="filter-select">
+                                <option value="">All Categories</option>
+                            </select>
+                        </div>
+                        <button class="add-btn" onclick="addDrink()">
+                            <span>+</span> Add Drink
+                        </button>
+                    </div>
+                    
+                    <div class="drinks-table-container">
+                        <table class="drinks-table" id="drinksTable">
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Tags</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="drinksTableBody">
+                                <!-- Drinks will be rendered here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Hidden Menu Section -->
+                <section class="content-section" id="section-hidden">
+                    <div class="section-header">
+                        <p class="section-info">🤫 These drinks only appear in search results</p>
+                        <button class="add-btn" onclick="addHiddenDrink()">
+                            <span>+</span> Add Secret Drink
+                        </button>
+                    </div>
+                    
+                    <div class="hidden-drinks-list" id="hiddenDrinksList">
+                        <!-- Hidden drinks will be rendered here -->
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section class="content-section" id="section-settings">
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h3>🎨 Theme Colors</h3>
+                            <div class="settings-row">
+                                <label>Primary Color (Pink)</label>
+                                <input type="color" id="colorPink" value="#ff2d95">
+                            </div>
+                            <div class="settings-row">
+                                <label>Secondary Color (Purple)</label>
+                                <input type="color" id="colorPurple" value="#8b00ff">
+                            </div>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3>🏷️ Club Info</h3>
+                            <div class="settings-row">
+                                <label>Club Name</label>
+                                <input type="text" id="clubName" value="Lucy Club">
+                            </div>
+                            <div class="settings-row">
+                                <label>Tagline</label>
+                                <input type="text" id="clubTagline" value="Feel the night with us">
+                            </div>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3>🔐 Change Password</h3>
+                            <div class="settings-row">
+                                <label>Current Password</label>
+                                <input type="password" id="currentPass">
+                            </div>
+                            <div class="settings-row">
+                                <label>New Password</label>
+                                <input type="password" id="newPass">
+                            </div>
+                            <button class="settings-btn" onclick="changePassword()">Update Password</button>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3>💰 Bulk Price Update</h3>
+                            <div class="settings-row">
+                                <label>Adjust all prices by (%)</label>
+                                <input type="number" id="priceAdjust" placeholder="e.g. 10 or -5">
+                            </div>
+                            <button class="settings-btn" onclick="bulkPriceUpdate()">Apply to All</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Export Section -->
+                <section class="content-section" id="section-export">
+                    <div class="export-grid">
+                        <div class="export-card" onclick="exportJSON()">
+                            <span class="export-icon">📄</span>
+                            <h3>Export JSON</h3>
+                            <p>Download data.js file</p>
+                        </div>
+                        
+                        <div class="export-card" onclick="exportCSV()">
+                            <span class="export-icon">📊</span>
+                            <h3>Export CSV</h3>
+                            <p>Download price list for Excel</p>
+                        </div>
+                        
+                        <div class="export-card" onclick="exportPDF()">
+                            <span class="export-icon">🖨️</span>
+                            <h3>Print Menu</h3>
+                            <p>Generate printable menu</p>
+                        </div>
+                        
+                        <div class="export-card" onclick="importJSON()">
+                            <span class="export-icon">📥</span>
+                            <h3>Import JSON</h3>
+                            <p>Restore from backup</p>
+                        </div>
+                    </div>
+                    
+                    <input type="file" id="importFile" accept=".json,.js" style="display: none;">
+                </section>
+                    <!-- Tags Section -->
+<section class="content-section" id="section-tags">
+    <div class="tags-overview">
+        <!-- Stats Cards -->
+        <div class="tags-stats">
+            <div class="tag-stat-card">
+                <span class="tag-stat-icon">🏷️</span>
+                <div class="tag-stat-info">
+                    <span class="tag-stat-value" id="totalTagsCount">0</span>
+                    <span class="tag-stat-label">Total Tags</span>
+                </div>
+            </div>
+            <div class="tag-stat-card">
+                <span class="tag-stat-icon">🍸</span>
+                <div class="tag-stat-info">
+                    <span class="tag-stat-value" id="taggedDrinksCount">0</span>
+                    <span class="tag-stat-label">Tagged Drinks</span>
+                </div>
+            </div>
+            <div class="tag-stat-card">
+                <span class="tag-stat-icon">⭐</span>
+                <div class="tag-stat-info">
+                    <span class="tag-stat-value" id="topTagName">-</span>
+                    <span class="tag-stat-label">Most Used Tag</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actions Bar -->
+        <div class="tags-actions-bar">
+            <div class="tags-search">
+                <input type="text" id="tagSearchInput" placeholder="🔍 Search tags...">
+            </div>
+            <button class="add-btn" onclick="showAddTagModal()">
+                <span>+</span> Create Tag
+            </button>
+        </div>
+
+        <!-- Tags Grid -->
+        <div class="tags-grid" id="tagsGrid">
+            <!-- Tags will be rendered here -->
+        </div>
+
+        <!-- Bulk Actions -->
+        <div class="tags-bulk-actions" id="tagsBulkActions" style="display: none;">
+            <span class="bulk-count"><span id="selectedTagsCount">0</span> selected</span>
+            <button class="bulk-btn" onclick="bulkDeleteTags()">🗑️ Delete Selected</button>
+            <button class="bulk-btn" onclick="mergeSelectedTags()">🔗 Merge Tags</button>
+            <button class="bulk-btn cancel" onclick="clearTagSelection()">✕ Cancel</button>
+        </div>
+    </div>
+
+    <!-- Tag Details Panel -->
+    <div class="tag-details-panel" id="tagDetailsPanel" style="display: none;">
+        <div class="tag-details-header">
+            <h3 id="tagDetailsTitle">Tag Details</h3>
+            <button class="close-panel-btn" onclick="closeTagDetails()">✕</button>
+        </div>
+        <div class="tag-details-content" id="tagDetailsContent">
+            <!-- Details will be rendered here -->
+        </div>
+    </div>
+</section>
+
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modalTitle">Edit Item</h2>
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content -->
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn cancel" onclick="closeModal()">Cancel</button>
+                <button class="modal-btn save" id="modalSaveBtn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-icon"></span>
+        <span class="toast-message"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
