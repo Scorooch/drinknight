@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUCY CLUB — Where Nights Become Legendary</title>
+    <meta name="description" content="Premium cocktails, electric vibes, unforgettable nights. Lucy Club — crafted drinks, curated moments.">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Italianno&display=swap" as="style">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Italianno&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/cursor.css">
+    <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/mood.css">
+    <link rel="stylesheet" href="css/signatures.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/builder.css">
+    <link rel="stylesheet" href="css/vip.css">
+    <link rel="stylesheet" href="css/events.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/reviews.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/mobile-bar.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- CUSTOM CURSOR -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- LOADING SCREEN -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-particles" id="loadingParticles"></div>
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="loading-glass">
+                    <svg viewBox="0 0 80 100" class="glass-svg">
+                        <path d="M15,10 L20,80 Q20,90 40,90 Q60,90 60,80 L65,10 Z" fill="none" stroke="url(#glassGrad)" stroke-width="2"/>
+                        <path class="liquid-fill" d="M22,75 L25,40 Q25,38 40,38 Q55,38 55,40 L58,75 Q58,85 40,85 Q22,85 22,75 Z" fill="url(#liquidGrad)"/>
+                        <circle class="bubble b1" cx="35" cy="60" r="2" fill="rgba(255,255,255,0.3)"/>
+                        <circle class="bubble b2" cx="45" cy="55" r="1.5" fill="rgba(255,255,255,0.2)"/>
+                        <circle class="bubble b3" cx="38" cy="50" r="1" fill="rgba(255,255,255,0.25)"/>
+                        <line x1="10" y1="10" x2="70" y2="10" stroke="url(#glassGrad)" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff2d95"/>
+                                <stop offset="100%" style="stop-color:#8b00ff"/>
+                            </linearGradient>
+                            <linearGradient id="liquidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff2d95;stop-opacity:0.6"/>
+                                <stop offset="100%" style="stop-color:#8b00ff;stop-opacity:0.8"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h1 class="loading-title">LUCY</h1>
+                <p class="loading-subtitle">CLUB & LOUNGE</p>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span class="progress-text" id="progressText">0%</span>
+            </div>
+            <p class="loading-message" id="loadingMessage">Preparing your experience...</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- SCROLL PROGRESS BAR -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- NAVIGATION -->
+    <!-- ═══════════════════════════════════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" data-magnetic>
+                <i data-lucide="wine" class="nav-logo-icon"></i>
+                <span class="nav-logo-text">LUCY</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#menu" class="nav-link" data-magnetic>Menu</a></li>
+                <li><a href="#drinks" class="nav-link" data-magnetic>Drinks</a></li>
+                <li><a href="#events" class="nav-link" data-magnetic>Events</a></li>
+                <li><a href="#gallery" class="nav-link" data-magnetic>Gallery</a></li>
+                <li><a href="#contact" class="nav-link" data-magnetic>Contact</a></li>
+                <li>
+                    <a href="#reserve" class="nav-link nav-cta" data-magnetic>
+                        <i data-lucide="calendar" style="width:16px;height:16px"></i>
+                        Reserve
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" data-magnetic aria-label="Toggle theme">
+                    <i data-lucide="moon" class="theme-icon moon-icon"></i>
+                    <i data-lucide="sun" class="theme-icon sun-icon"></i>
+                </button>
+                <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Full-Screen Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-bg"></div>
+        <div class="mobile-menu-content">
+            <ul class="mobile-nav-links">
+                <li><a href="#menu" class="mobile-nav-link" data-index="1">Menu</a></li>
+                <li><a href="#drinks" class="mobile-nav-link" data-index="2">Drinks</a></li>
+                <li><a href="#events" class="mobile-nav-link" data-index="3">Events</a></li>
+                <li><a href="#gallery" class="mobile-nav-link" data-index="4">Gallery</a></li>
+                <li><a href="#contact" class="mobile-nav-link" data-index="5">Contact</a></li>
+                <li><a href="#reserve" class="mobile-nav-link cta" data-index="6">Reserve Table</a></li>
+            </ul>
+            <div class="mobile-menu-footer">
+                <div class="mobile-socials">
+                    <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                    <a href="#" aria-label="Music"><i data-lucide="music"></i></a>
+                    <a href="#" aria-label="Phone"><i data-lucide="phone"></i></a>
+                </div>
+                <p class="mobile-menu-info">Open Thu-Sun · 9PM-4AM</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- HERO SECTION -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-particles" id="heroParticles"></div>
+            <div class="hero-grid-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i data-lucide="sparkles" style="width:14px;height:14px"></i>
+                    <span>Premium Experience</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line" data-reveal>WHERE NIGHTS</span>
+                    <span class="title-line title-accent" data-reveal>BECOME</span>
+                    <span class="title-line title-gradient" data-reveal>LEGENDARY.</span>
+                </h1>
+                <p class="hero-description" data-reveal>
+                    Premium cocktails, electric vibes, and unforgettable nights.
+                    Every sip crafted for moments that matter.
+                </p>
+                <div class="hero-buttons" data-reveal>
+                    <a href="#menu" class="btn btn-primary" data-magnetic>
+                        <i data-lucide="book-open" style="width:18px;height:18px"></i>
+                        <span>Explore Menu</span>
+                    </a>
+                    <a href="#reserve" class="btn btn-outline" data-magnetic>
+                        <i data-lucide="calendar-check" style="width:18px;height:18px"></i>
+                        <span>Reserve Table</span>
+                    </a>
+                </div>
+                <div class="hero-stats" data-reveal>
+                    <div class="stat">
+                        <span class="stat-number" data-count="50">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Cocktails</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-label">Years</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="10">0</span><span class="stat-plus">K+</span>
+                        <span class="stat-label">Happy Guests</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="floating-drink" id="floatingDrink">
+                    <div class="drink-glow"></div>
+                    <svg viewBox="0 0 200 300" class="drink-svg">
+                        <!-- Glass -->
+                        <path d="M60,40 L70,220 Q70,250 100,250 Q130,250 130,220 L140,40 Z" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                        <!-- Liquid -->
+                        <path class="hero-liquid" d="M72,210 L78,100 Q78,95 100,95 Q122,95 122,100 L128,210 Q128,240 100,240 Q72,240 72,210 Z" fill="url(#heroLiquidGrad)"/>
+                        <!-- Bubbles -->
+                        <circle class="hero-bubble hb1" cx="90" cy="180" r="3" fill="rgba(255,255,255,0.15)"/>
+                        <circle class="hero-bubble hb2" cx="110" cy="160" r="2" fill="rgba(255,255,255,0.1)"/>
+                        <circle class="hero-bubble hb3" cx="95" cy="140" r="2.5" fill="rgba(255,255,255,0.12)"/>
+                        <circle class="hero-bubble hb4" cx="105" cy="120" r="1.5" fill="rgba(255,255,255,0.08)"/>
+                        <!-- Rim highlight -->
+                        <ellipse cx="100" cy="40" rx="40" ry="6" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                        <!-- Garnish (lemon slice) -->
+                        <g transform="translate(130, 35) rotate(15)">
+                            <circle cx="0" cy="0" r="15" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.6"/>
+                            <circle cx="0" cy="0" r="10" fill="rgba(212,175,55,0.1)"/>
+                            <line x1="-8" y1="0" x2="8" y2="0" stroke="#d4af37" stroke-width="0.5" opacity="0.4"/>
+                            <line x1="0" y1="-8" x2="0" y2="8" stroke="#d4af37" stroke-width="0.5" opacity="0.4"/>
+                            <line x1="-6" y1="-6" x2="6" y2="6" stroke="#d4af37" stroke-width="0.5" opacity="0.4"/>
+                            <line x1="6" y1="-6" x2="-6" y2="6" stroke="#d4af37" stroke-width="0.5" opacity="0.4"/>
+                        </g>
+                        <!-- Straw -->
+                        <rect x="108" y="10" width="3" height="120" rx="1.5" fill="rgba(255,45,149,0.4)" transform="rotate(5, 109, 70)"/>
+                        <defs>
+                            <linearGradient id="heroLiquidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff2d95;stop-opacity:0.5"/>
+                                <stop offset="50%" style="stop-color:#8b00ff;stop-opacity:0.6"/>
+                                <stop offset="100%" style="stop-color:#0d0014;stop-opacity:0.8"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="drink-reflection"></div>
+                </div>
+
+                <!-- Floating elements -->
+                <div class="floating-element fe-1"><i data-lucide="sparkles"></i></div>
+                <div class="floating-element fe-2"><i data-lucide="star"></i></div>
+                <div class="floating-element fe-3"><i data-lucide="heart"></i></div>
+            </div>
+        </div>
+
+        <div class="hero-scroll-indicator" id="scrollIndicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow">
+                <i data-lucide="chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- MOOD SELECTOR -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="mood-section" id="mood">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">
+                    <i data-lucide="heart-pulse" style="width:14px;height:14px"></i>
+                    Personalized
+                </span>
+                <h2 class="section-title">What's Your <span class="text-gradient">Mood</span> Tonight?</h2>
+                <p class="section-subtitle">Tell us how you feel, and we'll craft the perfect suggestion</p>
+            </div>
+
+            <div class="mood-grid">
+                <button class="mood-card" data-mood="bold">
+                    <div class="mood-icon-wrap">
+                        <i data-lucide="flame"></i>
+                    </div>
+                    <h3 class="mood-name">Feeling Bold</h3>
+                    <p class="mood-desc">Strong, intense, unforgettable</p>
+                    <div class="mood-glow"></div>
+                </button>
+
+                <button class="mood-card" data-mood="chill">
+                    <div class="mood-icon-wrap">
+                        <i data-lucide="snowflake"></i>
+                    </div>
+                    <h3 class="mood-name">Keep it Chill</h3>
+                    <p class="mood-desc">Smooth, relaxed, easy-going</p>
+                    <div class="mood-glow"></div>
+                </button>
+
+                <button class="mood-card" data-mood="sweet">
+                    <div class="mood-icon-wrap">
+                        <i data-lucide="cherry"></i>
+                    </div>
+                    <h3 class="mood-name">Sweet & Soft</h3>
+                    <p class="mood-desc">Fruity, delicate, charming</p>
+                    <div class="mood-glow"></div>
+                </button>
+
+                <button class="mood-card" data-mood="party">
+                    <div class="mood-icon-wrap">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <h3 class="mood-name">Party Hard</h3>
+                    <p class="mood-desc">Wild, energetic, legendary</p>
+                    <div class="mood-glow"></div>
+                </button>
+
+                <button class="mood-card" data-mood="classy">
+                    <div class="mood-icon-wrap">
+                        <i data-lucide="crown"></i>
+                    </div>
+                    <h3 class="mood-name">Stay Classy</h3>
+                    <p class="mood-desc">Elegant, refined, timeless</p>
+                    <div class="mood-glow"></div>
+                </button>
+
+                <button class="mood-card" data-mood="surprise">
+                    <div class="mood-icon-wrap">
+                        <i data-lucide="shuffle"></i>
+                    </div>
+                    <h3 class="mood-name">Surprise Me</h3>
+                    <p class="mood-desc">Dealer's choice, trust us</p>
+                    <div class="mood-glow"></div>
+                </button>
+            </div>
+
+            <!-- Mood Results -->
+            <div class="mood-results" id="moodResults">
+                <div class="mood-results-header">
+                    <h3 class="mood-results-title" id="moodResultsTitle"></h3>
+                    <button class="mood-reset" id="moodReset">
+                        <i data-lucide="rotate-ccw" style="width:16px;height:16px"></i>
+                        Choose Again
+                    </button>
+                </div>
+                <div class="mood-results-grid" id="moodResultsGrid"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- SIGNATURE DRINKS -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="signatures-section" id="signatures">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">
+                    <i data-lucide="award" style="width:14px;height:14px"></i>
+                    House Specials
+                </span>
+                <h2 class="section-title">Our <span class="text-gradient">Signatures</span></h2>
+                <p class="section-subtitle">The drinks that made us famous</p>
+            </div>
+        </div>
+
+        <div class="signatures-track-wrapper">
+            <button class="sig-arrow sig-arrow-left" id="sigArrowLeft" data-magnetic>
+                <i data-lucide="chevron-left"></i>
+            </button>
+
+            <div class="signatures-track" id="signaturesTrack">
+                <!-- Cards will be generated by JS -->
+            </div>
+
+            <button class="sig-arrow sig-arrow-right" id="sigArrowRight" data-magnetic>
+                <i data-lucide="chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="signatures-dots" id="signaturesDots"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- SMART SEARCH -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="search-section" id="search">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">
+                    <i data-lucide="search" style="width:14px;height:14px"></i>
+                    Find Your Drink
+                </span>
+                <h2 class="section-title">Smart <span class="text-gradient">Search</span></h2>
+                <p class="section-subtitle">Type anything — name, ingredient, flavor, or mood</p>
+            </div>
+
+            <div class="search-container">
+                <div class="search-input-wrap">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Try 'spicy', 'vodka', 'sweet'..." autocomplete="off">
+                    <button class="search-clear" id="searchClear">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+
+                <div class="search-tags">
+                    <button class="search-tag" data-search="vodka">Vodka</button>
+                    <button class="search-tag" data-search="gin">Gin</button>
+                    <button class="search-tag" data-search="sweet">Sweet</button>
+                    <button class="search-tag" data-search="spicy">Spicy</button>
+                    <button class="search-tag" data-search="tropical">Tropical</button>
+                    <button class="search-tag" data-search="classic">Classic</button>
+                </div>
+
+                <div class="search-results" id="searchResults">
+                    <div class="search-results-grid" id="searchResultsGrid"></div>
+                    <div class="search-no-results" id="searchNoResults">
+                        <i data-lucide="search-x" style="width:48px;height:48px;opacity:0.3"></i>
+                        <p>No drinks found. Try something different!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- FULL MENU (3D Carousel) -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">
+                    <i data-lucide="book-open" style="width:14px;height:14px"></i>
+                    Full Menu
+                </span>
+                <h2 class="section-title">Explore Our <span class="text-gradient">Menu</span></h2>
+                <p class="section-subtitle">Swipe, browse, and discover your next favorite drink</p>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="menu-filters">
+                <button class="menu-filter active" data-category="all">
+                    <i data-lucide="layers" style="width:16px;height:16px"></i>
+                    All
+                </button>
+                <button class="menu-filter" data-category="cocktails">
+                    <i data-lucide="martini" style="width:16px;height:16px"></i>
+                    Cocktails
+                </button>
+                <button class="menu-filter" data-category="classics">
+                    <i data-lucide="gem" style="width:16px;height:16px"></i>
+                    Classics
+                </button>
+                <button class="menu-filter" data-category="mocktails">
+                    <i data-lucide="citrus" style="width:16px;height:16px"></i>
+                    Mocktails
+                </button>
+                <button class="menu-filter" data-category="shots">
+                    <i data-lucide="flask-round" style="width:16px;height:16px"></i>
+                    Shots
+                </button>
+                <button class="menu-filter" data-category="beer-wine">
+                    <i data-lucide="beer" style="width:16px;height:16px"></i>
+                    Beer & Wine
+                </button>
+                <button class="menu-filter secret-filter" data-category="secret">
+                    <i data-lucide="lock" style="width:16px;height:16px"></i>
+                    Secret
+                </button>
+            </div>
+
+            <!-- 3D Carousel -->
+            <div class="carousel-container">
+                <div class="carousel-scene" id="carouselScene">
+                    <div class="carousel-ring" id="carouselRing">
+                        <!-- Cards generated by JS -->
+                    </div>
+                </div>
+
+                <button class="carousel-arrow carousel-prev" id="carouselPrev" data-magnetic>
+                    <i data-lucide="chevron-left"></i>
+                </button>
+                <button class="carousel-arrow carousel-next" id="carouselNext" data-magnetic>
+                    <i data-lucide="chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Drink Detail Modal -->
+            <div class="drink-modal" id="drinkModal">
+                <div class="drink-modal-overlay" id="drinkModalOverlay"></div>
+                <div class="drink-modal-content" id="drinkModalContent">
+                    <button class="drink-modal-close" id="drinkModalClose">
+                        <i data-lucide="x"></i>
+                    </button>
+                    <div class="drink-modal-body" id="drinkModalBody"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- DRINK BUILDER -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="builder-section" id="builder">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">
+                    <i data-lucide="flask-conical" style="width:14px;height:14px"></i>
+                    Interactive
+                </span>
+                <h2 class="section-title">Build Your <span class="text-gradient">Drink</span></h2>
+                <p class="section-subtitle">Become your own bartender — mix, match, and create</p>
+            </div>
+
+            <div class="builder-container">
+                <div class="builder-preview">
+                    <div class="builder-glass">
+                        <svg viewBox="0 0 200 320" class="builder-glass-svg" id="builderGlass">
+                            <!-- Glass outline -->
+                            <path d="M55,30 L65,250 Q65,280 100,280 Q135,280 135,250 L145,30 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+                            <!-- Liquid (dynamic height & color) -->
+                            <clipPath id="glassClip">
+                                <path d="M56,30 L66,250 Q66,279 100,279 Q134,279 134,250 L144,30 Z"/>
+                            </clipPath>
+                            <rect id="builderLiquid" x="55" y="280" width="90" height="0" fill="url(#builderLiquidGrad)" clip-path="url(#glassClip)">
+                                <animate attributeName="y" dur="0.8s" fill="freeze"/>
+                                <animate attributeName="height" dur="0.8s" fill="freeze"/>
+                            </rect>
+                            <!-- Ice cubes (shown when selected) -->
+                            <g id="builderIce" style="display:none" clip-path="url(#glassClip)">
+                                <rect x="75" y="160" width="20" height="18" rx="4" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.1)"/>
+                                <rect x="100" y="170" width="22" height="16" rx="4" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.08)"/>
+                                <rect x="85" y="145" width="18" height="20" rx="4" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.07)"/>
+                            </g>
+                            <!-- Rim -->
+                            <ellipse cx="100" cy="30" rx="45" ry="7" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                            <defs>
+                                <linearGradient id="builderLiquidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop id="builderColor1" offset="0%" style="stop-color:#ff2d95;stop-opacity:0.5"/>
+                                    <stop id="builderColor2" offset="100%" style="stop-color:#8b00ff;stop-opacity:0.7"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="builder-glass-glow" id="builderGlassGlow"></div>
+                    </div>
+                    <div class="builder-name-display">
+                        <span id="builderDrinkName">Your Creation</span>
+                    </div>
+                </div>
+
+                <div class="builder-controls">
+                    <!-- Step 1: Base Spirit -->
+                    <div class="builder-step" data-step="1">
+                        <div class="step-header">
+                            <span class="step-number">01</span>
+                            <h3 class="step-title">Choose Your Base</h3>
+                        </div>
+                        <div class="step-options" id="baseOptions">
+                            <button class="step-option" data-base="vodka" data-color="#e0e0ff">
+                                <i data-lucide="droplets" style="width:20px;height:20px"></i>
+                                <span>Vodka</span>
+                            </button>
+                            <button class="step-option" data-base="gin" data-color="#b8e6d0">
+                                <i data-lucide="leaf" style="width:20px;height:20px"></i>
+                                <span>Gin</span>
+                            </button>
+                            <button class="step-option" data-base="rum" data-color="#d4a574">
+                                <i data-lucide="palmtree" style="width:20px;height:20px"></i>
+                                <span>Rum</span>
+                            </button>
+                            <button class="step-option" data-base="whiskey" data-color="#c8842a">
+                                <i data-lucide="flame" style="width:20px;height:20px"></i>
+                                <span>Whiskey</span>
+                            </button>
+                            <button class="step-option" data-base="tequila" data-color="#c4d88e">
+                                <i data-lucide="sun" style="width:20px;height:20px"></i>
+                                <span>Tequila</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Flavor -->
+                    <div class="builder-step" data-step="2">
+                        <div class="step-header">
+                            <span class="step-number">02</span>
+                            <h3 class="step-title">Add Flavors</h3>
+                        </div>
+                        <div class="step-options" id="flavorOptions">
+                            <button class="step-option toggleable" data-flavor="citrus">
+                                <i data-lucide="citrus" style="width:20px;height:20px"></i>
+                                <span>Citrus</span>
+                            </button>
+                            <button class="step-option toggleable" data-flavor="berry">
+                                <i data-lucide="cherry" style="width:20px;height:20px"></i>
+                                <span>Berry</span>
+                            </button>
+                            <button class="step-option toggleable" data-flavor="tropical">
+                                <i data-lucide="palmtree" style="width:20px;height:20px"></i>
+                                <span>Tropical</span>
+                            </button>
+                            <button class="step-option toggleable" data-flavor="herbal">
+                                <i data-lucide="leaf" style="width:20px;height:20px"></i>
+                                <span>Herbal</span>
+                            </button>
+                            <button class="step-option toggleable" data-flavor="spicy">
+                                <i data-lucide="flame" style="width:20px;height:20px"></i>
+                                <span>Spicy</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Sweetness -->
+                    <div class="builder-step" data-step="3">
+                        <div class="step-header">
+                            <span class="step-number">03</span>
+                            <h3 class="step-title">Sweetness Level</h3>
+                        </div>
+                        <div class="sweetness-slider">
+                            <input type="range" min="0" max="100" value="50" class="slider-input" id="sweetnessSlider">
+                            <div class="slider-labels">
+                                <span>Dry</span>
+                                <span>Balanced</span>
+                                <span>Sweet</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Extras -->
+                    <div class="builder-step" data-step="4">
+                        <div class="step-header">
+                            <span class="step-number">04</span>
+                            <h3 class="step-title">Extras</h3>
+                        </div>
+                        <div class="step-options" id="extraOptions">
+                            <button class="step-option toggleable" data-extra="ice">
+                                <i data-lucide="snowflake" style="width:20px;height:20px"></i>
+                                <span>Ice</span>
+                            </button>
+                            <button class="step-option toggleable" data-extra="salt-rim">
+                                <i data-lucide="circle-dot" style="width:20px;height:20px"></i>
+                                <span>Salt Rim</span>
+                            </button>
+                            <button class="step-option toggleable" data-extra="double">
+                                <i data-lucide="copy" style="width:20px;height:20px"></i>
+                                <span>Double</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Price & Action -->
+                    <div class="builder-summary">
+                        <div class="builder-price">
+                            <span class="price-label">Your Creation</span>
+                            <span class="price-value">€<span id="builderPrice">10</span></span>
+                        </div>
+                        <button class="btn btn-primary builder-order" id="builderOrder" data-magnetic>
+                            <i data-lucide="sparkles" style="width:18px;height:18px"></i>
+                            <span>Order This Drink</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- VIP BOTTLE SERVICE -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="vip-section" id="vip">
+        <div class="vip-bg">
+            <div class="vip-particles" id="vipParticles"></div>
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag section-tag-gold">
+                    <i data-lucide="crown" style="width:14px;height:14px"></i>
+                    Premium
+                </span>
+                <h2 class="section-title">VIP <span class="text-gold">Bottle Service</span></h2>
+                <p class="section-subtitle">Elevate your night to legendary status</p>
+            </div>
+
+            <div class="vip-grid">
+                <div class="vip-visual">
+                    <div class="vip-bottle" id="vipBottle">
+                        <svg viewBox="0 0 120 300" class="bottle-svg">
+                            <!-- Bottle shape -->
+                            <path d="M45,80 L45,50 Q45,35 50,30 L50,15 Q50,5 60,5 Q70,5 70,15 L70,30 Q75,35 75,50 L75,80 Q80,90 80,110 L80,250 Q80,275 60,275 Q40,275 40,250 L40,110 Q40,90 45,80 Z" fill="rgba(212,175,55,0.1)" stroke="url(#bottleGrad)" stroke-width="1.5"/>
+                            <!-- Label -->
+                            <rect x="42" y="140" width="36" height="60" rx="4" fill="rgba(212,175,55,0.05)" stroke="rgba(212,175,55,0.3)" stroke-width="0.5"/>
+                            <text x="60" y="165" text-anchor="middle" fill="#d4af37" font-size="6" font-family="Playfair Display">PREMIUM</text>
+                            <text x="60" y="180" text-anchor="middle" fill="rgba(212,175,55,0.5)" font-size="4" font-family="Inter">SELECTION</text>
+                            <!-- Liquid level -->
+                            <path d="M42,250 L42,160 Q42,155 60,155 Q78,155 78,160 L78,250 Q78,273 60,273 Q42,273 42,250 Z" fill="url(#vipLiquidGrad)" opacity="0.6"/>
+                            <!-- Foil top -->
+                            <path d="M48,30 Q48,20 60,18 Q72,20 72,30" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                            <defs>
+                                <linearGradient id="bottleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#d4af37"/>
+                                    <stop offset="100%" style="stop-color:#f4d03f"/>
+                                </linearGradient>
+                                <linearGradient id="vipLiquidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#d4af37;stop-opacity:0.3"/>
+                                    <stop offset="100%" style="stop-color:#8b6914;stop-opacity:0.5"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="vip-bottle-glow"></div>
+                    </div>
+                </div>
+
+                <div class="vip-content">
+                    <div class="vip-packages">
+                        <div class="vip-package" data-package="silver">
+                            <div class="package-header">
+                                <i data-lucide="star" style="width:20px;height:20px"></i>
+                                <h3>Silver</h3>
+                                <span class="package-price">from €180</span>
+                            </div>
+                            <ul class="package-features">
+                                <li><i data-lucide="check" style="width:14px;height:14px"></i> Premium bottle selection</li>
+                                <li><i data-lucide="check" style="width:14px;height:14px"></i> Reserved seating</li>
+                                <li><i data-lucide="check" style="width:14px;height:14px"></i> Mixers included</li>
+                            </ul>
+                        </div>
+
+                        <div class="vip-package featured" data-package="gold">
+                            <div class="package-badge">Most Popular</div>
+                            <div class="package-header">
+                                <i data-lucide="crown" style="width:20px;height:20px"></i>
+                                <h3>Gold</h3>
+                                <span class="package-price">from €350</span>
+                            </div>
+                            <ul class="package-features">
+                                <li><i data-lucide="check" style="width:14px;height:14px"></i> 2 Premium bottles</li>
+                                <li><i data-lucide="check" style="width:14px;height:14px"></i> Private booth</li>
+                                <li><i data-lucide="check" style="width:14px;height:14px"></i> Dedicated server</li>
+                                <li><i data-lucide="check" style="width:14px;height:14px"></i> Skip the line</li>
+                            </ul>
+                        </div>
+
+                        <div class="vip-package" data-package="diamond">
+                            <div class="package-header">
+                                <i data-lucide="gem" style="width:20px;height:20px"></i>
+                                <h3>Diamond</h3>
+                                <span class="package-price">from €800</span>
+                            </div>
+                            <ul class="package-features">
+                                <li><i data-lucide="check" style="width:14px;height:14px"></i> Premium champagne</li>
+                                <li><i data-lucide="check" style="width:14px;height:14px"></i> VIP lounge access</li>
+                                <li><i data-lucide="check" style="width:14px;height:14px"></i> Personal bartender</li>
+                                <li><i data-lucide="check" style="width:14px;height:14px"></i> Complimentary food</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <a href="#reserve" class="btn btn-gold" data-magnetic>
+                        <i data-lucide="crown" style="width:18px;height:18px"></i>
+                        <span>Reserve VIP Table</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- TONIGHT'S VIBE / EVENTS -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="events-section" id="events">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">
+                    <i data-lucide="music" style="width:14px;height:14px"></i>
+                    Live & Events
+                </span>
+                <h2 class="section-title">Tonight's <span class="text-gradient">Vibe</span></h2>
+                <p class="section-subtitle">Live music, DJ sets, and unforgettable nights</p>
+            </div>
+
+            <!-- Now Playing -->
+            <div class="now-playing" id="nowPlaying">
+                <div class="now-playing-info">
+                    <div class="now-playing-status">
+                        <span class="live-dot"></span>
+                        <span>NOW PLAYING</span>
+                    </div>
+                    <h3 class="now-playing-title">DJ MAXXX — Neon Dreams</h3>
+                    <div class="now-playing-progress">
+                        <div class="progress-bar-audio">
+                            <div class="progress-bar-fill" id="audioProgressFill"></div>
+                        </div>
+                        <div class="progress-times">
+                            <span>2:34</span>
+                            <span>5:12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="audio-visualizer" id="audioVisualizer">
+                    <!-- Generated by JS -->
+                </div>
+            </div>
+
+            <!-- Upcoming Events -->
+            <div class="events-grid">
+                <div class="event-card" data-day="friday">
+                    <div class="event-date">
+                        <span class="event-day">FRI</span>
+                        <span class="event-num">24</span>
+                    </div>
+                    <div class="event-info">
+                        <h3 class="event-name">DJ MAXXX</h3>
+                        <p class="event-genre">Deep House / Tech</p>
+                        <span class="event-time">
+                            <i data-lucide="clock" style="width:14px;height:14px"></i>
+                            10 PM - 4 AM
+                        </span>
+                    </div>
+                    <div class="event-action">
+                        <button class="btn btn-sm" data-magnetic>RSVP</button>
+                    </div>
+                </div>
+
+                <div class="event-card" data-day="saturday">
+                    <div class="event-date">
+                        <span class="event-day">SAT</span>
+                        <span class="event-num">25</span>
+                    </div>
+                    <div class="event-info">
+                        <h3 class="event-name">LIVE JAZZ BAND</h3>
+                        <p class="event-genre">Jazz / Soul</p>
+                        <span class="event-time">
+                            <i data-lucide="clock" style="width:14px;height:14px"></i>
+                            9 PM - 2 AM
+                        </span>
+                    </div>
+                    <div class="event-action">
+                        <button class="btn btn-sm" data-magnetic>RSVP</button>
+                    </div>
+                </div>
+
+                <div class="event-card" data-day="sunday">
+                    <div class="event-date">
+                        <span class="event-day">SUN</span>
+                        <span class="event-num">26</span>
+                    </div>
+                    <div class="event-info">
+                        <h3 class="event-name">CHILL LOUNGE</h3>
+                        <p class="event-genre">Ambient / Lo-fi</p>
+                        <span class="event-time">
+                            <i data-lucide="clock" style="width:14px;height:14px"></i>
+                            8 PM - 1 AM
+                        </span>
+                    </div>
+                    <div class="event-action">
+                        <button class="btn btn-sm" data-magnetic>RSVP</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- GALLERY -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">
+                    <i data-lucide="camera" style="width:14px;height:14px"></i>
+                    Moments
+                </span>
+                <h2 class="section-title">The Lucy <span class="text-gradient">Experience</span></h2>
+                <p class="section-subtitle">Captured moments from legendary nights</p>
+            </div>
+
+            <div class="gallery-filters">
+                <button class="gallery-filter active" data-filter="all">All</button>
+                <button class="gallery-filter" data-filter="drinks">Drinks</button>
+                <button class="gallery-filter" data-filter="people">People</button>
+                <button class="gallery-filter" data-filter="events">Events</button>
+                <button class="gallery-filter" data-filter="interior">Interior</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Generated by JS -->
+            </div>
+
+            <button class="btn btn-outline gallery-load-more" id="galleryLoadMore" data-magnetic>
+                <i data-lucide="plus" style="width:18px;height:18px"></i>
+                <span>Load More</span>
+            </button>
+        </div>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <div class="lightbox-overlay"></div>
+            <div class="lightbox-content">
+                <button class="lightbox-close" id="lightboxClose">
+                    <i data-lucide="x"></i>
+                </button>
+                <button class="lightbox-prev" id="lightboxPrev">
+                    <i data-lucide="chevron-left"></i>
+                </button>
+                <button class="lightbox-next" id="lightboxNext">
+                    <i data-lucide="chevron-right"></i>
+                </button>
+                <div class="lightbox-image-wrap">
+                    <img src="" alt="" class="lightbox-image" id="lightboxImage">
+                </div>
+                <div class="lightbox-caption" id="lightboxCaption"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- REVIEWS -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="reviews-section" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">
+                    <i data-lucide="message-circle" style="width:14px;height:14px"></i>
+                    Testimonials
+                </span>
+                <h2 class="section-title">What People <span class="text-gradient">Say</span></h2>
+                <p class="section-subtitle">Real experiences from our guests</p>
+            </div>
+
+            <div class="reviews-carousel" id="reviewsCarousel">
+                <div class="reviews-track" id="reviewsTrack">
+                    <!-- Generated by JS -->
+                </div>
+            </div>
+
+            <div class="reviews-controls">
+                <button class="review-arrow review-prev" id="reviewPrev" data-magnetic>
+                    <i data-lucide="chevron-left"></i>
+                </button>
+                <div class="reviews-dots" id="reviewsDots"></div>
+                <button class="review-arrow review-next" id="reviewNext" data-magnetic>
+                    <i data-lucide="chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- CONTACT / FIND US -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">
+                    <i data-lucide="map-pin" style="width:14px;height:14px"></i>
+                    Location
+                </span>
+                <h2 class="section-title">Find <span class="text-gradient">Us</span></h2>
+                <p class="section-subtitle">We're waiting for you</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-map" id="contactMap">
+                    <!-- Placeholder map with styled background -->
+                    <div class="map-placeholder">
+                        <div class="map-pin">
+                            <i data-lucide="map-pin"></i>
+                            <div class="map-pin-pulse"></div>
+                        </div>
+                        <p class="map-address">123 Party Street, Berlin</p>
+                        <a href="https://maps.google.com" target="_blank" class="btn btn-sm" data-magnetic>
+                            <i data-lucide="navigation" style="width:14px;height:14px"></i>
+                            Get Directions
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i data-lucide="map-pin"></i>
+                        </div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>123 Party Street<br>Berlin, Germany 10115</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i data-lucide="clock"></i>
+                        </div>
+                        <div>
+                            <h3>Hours</h3>
+                            <p>Thu - Sat: 9 PM — 4 AM<br>Sunday: 8 PM — 2 AM<br>Mon-Wed: Closed</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i data-lucide="phone"></i>
+                        </div>
+                        <div>
+                            <h3>Contact</h3>
+                            <p><a href="tel:+49123456789">+49 123 456 789</a><br><a href="mailto:hello@lucyclub.com">hello@lucyclub.com</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Quick Contact Form -->
+                    <form class="contact-form" id="contactForm">
+                        <h3 class="form-title">Send us a message</h3>
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" placeholder="Your email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-input form-textarea" placeholder="Your message" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-magnetic>
+                            <i data-lucide="send" style="width:16px;height:16px"></i>
+                            <span>Send Message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- FOOTER -->
+    <!-- ═══════════════════════════════════════ -->
+    <footer class="footer" id="footer">
+        <div class="footer-glow"></div>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <i data-lucide="wine" style="width:28px;height:28px"></i>
+                        <span>LUCY</span>
+                    </a>
+                    <p class="footer-tagline">Where nights become legendary.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-link" data-magnetic aria-label="Instagram">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" data-magnetic aria-label="Facebook">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                        <a href="#" class="social-link" data-magnetic aria-label="TikTok">
+                            <i data-lucide="music-2"></i>
+                        </a>
+                        <a href="#" class="social-link" data-magnetic aria-label="WhatsApp">
+                            <i data-lucide="message-circle"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#menu">Cocktails</a></li>
+                        <li><a href="#menu">Classics</a></li>
+                        <li><a href="#menu">Mocktails</a></li>
+                        <li><a href="#vip">VIP Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">TikTok</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">WhatsApp</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Imprint</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Get notified about events & specials</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="your@email.com" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-btn" data-magnetic>
+                            <i data-lucide="arrow-right" style="width:18px;height:18px"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 Lucy Club. Crafted with <span class="heart-icon">♥</span> for the night.</p>
+                <button class="back-to-top" id="backToTop" data-magnetic>
+                    <i data-lucide="chevron-up" style="width:18px;height:18px"></i>
+                    <span>Back to Top</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- MOBILE BOTTOM BAR -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="mobile-bottom-bar" id="mobileBottomBar">
+        <a href="#menu" class="bottom-bar-item">
+            <i data-lucide="book-open"></i>
+            <span>Menu</span>
+        </a>
+        <a href="#search" class="bottom-bar-item">
+            <i data-lucide="search"></i>
+            <span>Search</span>
+        </a>
+        <a href="#reserve" class="bottom-bar-item bottom-bar-cta">
+            <i data-lucide="calendar"></i>
+            <span>Reserve</span>
+        </a>
+        <a href="tel:+49123456789" class="bottom-bar-item">
+            <i data-lucide="phone"></i>
+            <span>Call</span>
+        </a>
+    </div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- JAVASCRIPT FILES -->
+    <!-- ═══════════════════════════════════════ -->
+    <script src="js/app.js"></script>
+    <script src="js/loading.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/hero.js"></script>
+    <script src="js/mood.js"></script>
+    <script src="js/signatures.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/builder.js"></script>
+    <script src="js/vip.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/reviews.js"></script>
+    <script src="js/contact.js"></script>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

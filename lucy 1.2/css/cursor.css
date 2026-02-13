@@ -1,0 +1,80 @@
+/* ═══════════════════════════════════════════════════════
+   CUSTOM CURSOR
+   ═══════════════════════════════════════════════════════ */
+
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: var(--pink-electric);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: var(--z-cursor);
+    transform: translate(-50%, -50%);
+    transition: width var(--duration-base) var(--ease-spring),
+                height var(--duration-base) var(--ease-spring),
+                background var(--duration-base) var(--ease-out),
+                opacity var(--duration-base) var(--ease-out);
+    mix-blend-mode: difference;
+}
+
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--pink-electric);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: var(--z-cursor);
+    transform: translate(-50%, -50%);
+    transition: width var(--duration-base) var(--ease-spring),
+                height var(--duration-base) var(--ease-spring),
+                border-color var(--duration-base) var(--ease-out),
+                opacity var(--duration-base) var(--ease-out);
+    opacity: 0.4;
+}
+
+/* ─── Cursor States ─── */
+.cursor-dot.hovering {
+    width: 16px;
+    height: 16px;
+    background: var(--white);
+    mix-blend-mode: difference;
+}
+
+.cursor-ring.hovering {
+    width: 64px;
+    height: 64px;
+    border-color: var(--white);
+    opacity: 0.2;
+}
+
+.cursor-dot.clicking {
+    width: 6px;
+    height: 6px;
+}
+
+.cursor-ring.clicking {
+    width: 30px;
+    height: 30px;
+    opacity: 0.6;
+}
+
+.cursor-dot.hidden,
+.cursor-ring.hidden {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* ─── Hide on touch devices ─── */
+@media (pointer: coarse) {
+    .cursor-dot,
+    .cursor-ring {
+        display: none;
+    }
+}

@@ -1,0 +1,98 @@
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE OVERRIDES
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── Tablet ─── */
+@media (max-width: 1024px) {
+    :root {
+        --section-padding: 80px;
+    }
+
+    .container {
+        padding: 0 var(--space-5);
+    }
+}
+
+/* ─── Mobile ─── */
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 60px;
+        --nav-height: 64px;
+    }
+
+    .container {
+        padding: 0 var(--space-4);
+    }
+
+    .section-header {
+        margin-bottom: var(--space-10);
+    }
+
+    .section-title {
+        font-size: clamp(var(--text-2xl), 7vw, var(--text-4xl));
+    }
+
+    .section-subtitle {
+        font-size: var(--text-base);
+    }
+
+    .btn {
+        padding: var(--space-3) var(--space-5);
+        font-size: var(--text-xs);
+    }
+
+    /* Disable custom cursor on mobile */
+    .cursor-dot,
+    .cursor-ring {
+        display: none !important;
+    }
+
+    body {
+        cursor: auto;
+    }
+}
+
+/* ─── Small Mobile ─── */
+@media (max-width: 480px) {
+    :root {
+        --section-padding: 48px;
+    }
+
+    .mood-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-stats {
+        flex-wrap: wrap;
+        gap: var(--space-4);
+    }
+
+    .stat-divider {
+        display: none;
+    }
+}
+
+/* ─── Large screens ─── */
+@media (min-width: 1440px) {
+    :root {
+        --container-max: 1400px;
+    }
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .floating-drink,
+    .floating-element,
+    .hero-bubble,
+    .hero-liquid,
+    .glass-svg,
+    .loading-particle {
+        animation: none !important;
+    }
+}
